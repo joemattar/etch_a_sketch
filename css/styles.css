@@ -154,6 +154,11 @@ h1 {
     background-color: #f1a1a1;
 }
 
+/* MUST BE BELOW .pixel */
+.pixel.removemargin {
+    margin: 0;
+}
+
 .knobs {
     width: 1100px;
     display: flex;

@@ -4,6 +4,7 @@ const gridDiv = document.querySelector("div.grid");
 const slider = document.querySelector("#resolution");
 const resolutionText = document.querySelector("#resolutiontext");
 const colorPicker = document.querySelector("#colorpicker");
+const gridlinesButton = document.querySelector("button.gridlines")
 const resetButton = document.querySelector("button.reset");
 
 let mousePressed = false
@@ -70,8 +71,15 @@ addEventListener("mouseover", (e) => {
     }
 })
 
+// Eraser functionality
 
 
+// Toggle Gridlines ON and Off
+gridlinesButton.addEventListener("click", () => {
+    for (let pixel of pixels) {
+        pixel.classList.toggle("removemargin");
+    }
+})
 
 // Onb button click resets the grid keeping the current resolution
 resetButton.addEventListener("click", () => {
