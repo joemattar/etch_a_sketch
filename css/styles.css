@@ -4,11 +4,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
 .settings {
-    width: 1150px;
+    width: 300px;
     background-color: #ec1f24;
     border-style: solid;
     border-color: #ce0001;
@@ -17,15 +22,20 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
-.buttons {
-
+.slidertext {
+    color: #fde50f;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px #ec2223;
+    margin: 5px;
+    padding: 0;
 }
 
 .slidercontainer {
     width: 100%; /* Width of the outside container */
+    margin: 25px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,30 +55,45 @@ body {
     transition: opacity .2s;
   }
 
-  .slider:hover {
+.slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
-  }
+}
 
-  .slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 100px; /* Set a specific slider handle width */
+    width: 50px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #fde50f; /* Green background */
     cursor: grabbing; /* Cursor on hover */
-  }
+}
   
-  .slider::-moz-range-thumb {
-    width: 100px; /* Set a specific slider handle width */
+.slider::-moz-range-thumb {
+    width: 50px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: #fde50f; /* Green background */
     cursor: grabbing; /* Cursor on hover */
-  }
+}
 
-  .slidertext {
-    margin: 0;
-    padding: 0;
-  }
+.buttons {
+    width: 100%;
+    height: 100%;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+#colorpicker {
+    width: 100%;
+    height: 40px;
+}
+
+.buttons button {
+    width: 100%;
+    height: 40px;
+}
 
 .etch-a-sketch {
     background-color: #ec1f24;

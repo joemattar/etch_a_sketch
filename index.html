@@ -9,27 +9,31 @@
         <title>Etch A Sketch</title>
     </head>
     <body>
-        <div class="settings">
-            <div class="buttons">
-                <button class="reset">RESET</button>
+        <div class="main">
+            <div class="settings">
+                <div class="slidercontainer">
+                    <p class="slidertext">GRID RESOLUTION:</p>
+                    <p class="slidertext"><span id="resolutiontext"></span></p>
+                    <input type="range" min="20" max="100" step="10" value="20" class="slider" id="resolution">
+                </div>
+                <div class="buttons">
+                    <input type="color" id="colorpicker" name="colorpicker" value="#ff0000">
+                    <button class="gridlines">TOGGLE GRIDLINES</button>
+                    <button class="reset">RESET</button>
+                </div>
             </div>
-            <div class="slidercontainer">
-                <input type="range" min="20" max="100" step="10" value="20" class="slider" id="resolution">
-                <p class="slidertext">GRID RESOLUTION: <span id="resolutiontext"></span></p>
+            <div class="etch-a-sketch">
+                <div class="header">
+                    <h1>MAGIC</h1>
+                    <img src="./images/etch_a_sketch_logo.png" alt="etch a sketch logo">
+                    <h1>SCREEN</h1>
+                </div>
+                <div class="grid"></div>
+                <div class="knobs">
+                    <img src="./images/knob.png" alt="Knob">
+                    <img src="./images/knob.png" alt="Knob">
+                </div>
             </div>
         </div>
-        <div class="etch-a-sketch">
-            <div class="header">
-                <h1>MAGIC</h1>
-                <img src="./images/etch_a_sketch_logo.png" alt="etch a sketch logo">
-                <h1>SCREEN</h1>
-            </div>
-            <div class="grid"></div>
-            <div class="knobs">
-                <img src="./images/knob.png" alt="Knob">
-                <img src="./images/knob.png" alt="Knob">
-            </div>
-        </div>
-
     </body>
 </html>

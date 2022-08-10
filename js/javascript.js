@@ -27,6 +27,9 @@ createGrid(slider.value, gridSize);
 resolutionText.textContent = `${slider.value} x ${slider.value}`;
 
 
+slider.addEventListener("input", () => {
+    resolutionText.textContent = `${slider.value} x ${slider.value}`;
+})
 
 slider.addEventListener("change", () => {
     resolutionText.textContent = `${slider.value} x ${slider.value}`;
