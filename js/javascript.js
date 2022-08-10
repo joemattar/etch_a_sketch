@@ -48,9 +48,20 @@ slider.addEventListener("change", () => {
     createGrid(slider.value, gridSize);
 })
 
-// Draws color picker value if mouse is pressed and mouseover
+// Event listener to toggle mousePressed true or false
 addEventListener("mousedown", () => mousePressed = true);
 addEventListener("mouseup", () => mousePressed = false);
+
+// Draws color picker value if mouse is clicked
+addEventListener("mousedown", (e) => {
+    for (let pixel of pixels) {
+        if (pixel.matches(":hover")) {
+            e.target.style.backgroundColor = colorPicker.value;
+        }
+    }
+})
+
+// Draws color picker value if mouse is pressed and mouseover
 addEventListener("mouseover", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && mousePressed) {
@@ -58,6 +69,8 @@ addEventListener("mouseover", (e) => {
         }
     }
 })
+
+
 
 
 // Onb button click resets the grid keeping the current resolution
