@@ -1,19 +1,16 @@
 body {
+    margin: 15px;
     font-family: sans-serif;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .main {
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    gap: 15px;
 }
 
 .settings {
-    width: 300px;
+    min-width: 300px;
     background-color: #ec1f24;
     border-style: solid;
     border-color: #ce0001;
@@ -48,7 +45,7 @@ body {
     appearance: none;
     width: 100%; /* Full-width */
     height: 25px; /* Specified height */
-    background: #f1a1a1; /* Grey background */
+    background: #f1a1a1;
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
@@ -146,7 +143,7 @@ h1 {
 }
 
 .pixel:hover {
-    background-color: darkred;
+    background-color: #f1a1a1;
 }
 
 .knobs {
@@ -160,4 +157,16 @@ h1 {
     width: 100px;
     height: auto;
     margin: 25px;
+}
+
+.footer {
+    color: #fde50f;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px #ec2223;
+    align-self: flex-end;
+}
+
+.footer a {
+    color: #fde50f;
+    text-decoration: none;
 }
