@@ -1,5 +1,5 @@
 const gridSize = 800;
-let gridResolution = 16;
+let gridResolution = 50;
 
 const gridDiv = document.querySelector("div.grid");
 
