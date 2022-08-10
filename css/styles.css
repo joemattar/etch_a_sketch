@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    padding: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    background-color: black;
+}
+
+.pixelRow {
+    display: flex;
+    align-items: stretch;
+}
+
+.pixel {
+    background-color: white;
+    margin: 0.5px;
+}
+
+.pixel:hover {
+    background-color: aqua;
+}
