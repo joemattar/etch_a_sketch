@@ -4,23 +4,90 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
+
+.settings {
+    width: 1150px;
+    background-color: #ec1f24;
+    border-style: solid;
+    border-color: #ce0001;
+    border-width: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons {
+
+}
+
+.slidercontainer {
+    width: 100%; /* Width of the outside container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #f1a1a1; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 100px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #fde50f; /* Green background */
+    cursor: grabbing; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 100px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #fde50f; /* Green background */
+    cursor: grabbing; /* Cursor on hover */
+  }
+
+  .slidertext {
+    margin: 0;
+    padding: 0;
+  }
 
 .etch-a-sketch {
     background-color: #ec1f24;
     border-style: solid;
     border-color: #ce0001;
-    border-width: 30px;
-    border-radius: 30px;
+    border-width: 15px;
+    border-radius: 15px;
+    padding: 0 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .header {
+    margin: 25px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
 }
 
 .header img {
