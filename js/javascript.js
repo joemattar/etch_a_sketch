@@ -7,6 +7,8 @@ const colorPicker = document.querySelector("#colorpicker");
 let mousePressed = false
 let pixels = [];
 
+
+// Grid creation function
 function createGrid(resolution, size) {
     gridDiv.textContent = "";
     gridDiv.style.height = `${gridSize}px`;
@@ -26,23 +28,26 @@ function createGrid(resolution, size) {
     }
 }
 
+//Initial grid creation
 createGrid(slider.value, gridSize);
 
+// Initial resolution text
 resolutionText.textContent = `${slider.value} x ${slider.value}`;
 
-
+// Changes slider text
 slider.addEventListener("input", () => {
     resolutionText.textContent = `${slider.value} x ${slider.value}`;
 })
 
+// Changes slider text and resets grid with new resolution
 slider.addEventListener("change", () => {
     resolutionText.textContent = `${slider.value} x ${slider.value}`;
     createGrid(slider.value, gridSize);
 })
 
+// Draws color picker value if mouse is pressed and mouseover
 addEventListener("mousedown", () => mousePressed = true)
 addEventListener("mouseup", () => mousePressed = false)
-
 addEventListener("mouseover", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && mousePressed) {
