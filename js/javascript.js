@@ -4,6 +4,7 @@ const gridDiv = document.querySelector("div.grid");
 const slider = document.querySelector("#resolution");
 const resolutionText = document.querySelector("#resolutiontext");
 const colorPicker = document.querySelector("#colorpicker");
+const eraserButton = document.querySelector("button.eraser")
 const gridlinesButton = document.querySelector("button.gridlines")
 const resetButton = document.querySelector("button.reset");
 
@@ -73,6 +74,12 @@ addEventListener("mouseover", (e) => {
 })
 
 // Eraser functionality
+
+eraserButton.addEventListener("click", () => {
+    eraserButton.classList.toggle("pressed")
+})
+
+
 
 
 // Toggle Gridlines ON and Off

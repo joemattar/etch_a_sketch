@@ -134,8 +134,8 @@ body {
 }
 
 .buttons button.pressed:hover{
-    background-color: #ec1f24;
-    color: #fde50f;
+    background-color: #eaa800;
+    /* color: #fde50f; */
 }
 
 .etch-a-sketch {
