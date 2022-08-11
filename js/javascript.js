@@ -55,10 +55,15 @@ slider.addEventListener("change", () => {
 addEventListener("mousedown", () => mousePressed = true);
 addEventListener("mouseup", () => mousePressed = false);
 
+
+
+
 // Draws color picker value if mouse is clicked
 addEventListener("mousedown", (e) => {
     for (let pixel of pixels) {
-        if (pixel.matches(":hover")) {
+        if (pixel.matches(":hover") && eraserMode) {
+            e.target.style.removeProperty("background-color");
+        }else if (pixel.matches(":hover")) {
             e.target.style.backgroundColor = colorPicker.value;
         }
     }
@@ -67,20 +72,26 @@ addEventListener("mousedown", (e) => {
 // Draws color picker value if mouse is pressed and mouseover
 addEventListener("mouseover", (e) => {
     for (let pixel of pixels) {
-        if (pixel.matches(":hover") && mousePressed) {
+        if (pixel.matches(":hover") && mousePressed && eraserMode) {
+            e.target.style.removeProperty("background-color");
+        } else if (pixel.matches(":hover") && mousePressed) {
             e.target.style.backgroundColor = colorPicker.value;
         }
     }
 })
 
-// Eraser functionality
 
+
+
+// Eraser functionality
 eraserButton.addEventListener("click", () => {
     eraserButton.classList.toggle("pressed")
+    if (eraserMode) {
+        eraserMode = false;
+    } else if (!eraserMode) {
+        eraserMode = true;
+    }
 })
-
-
-
 
 // Toggle Gridlines ON and Off
 gridlinesButton.addEventListener("click", () => {
