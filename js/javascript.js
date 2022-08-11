@@ -4,17 +4,14 @@ const gridDiv = document.querySelector("div.grid");
 const slider = document.querySelector("#resolution");
 const resolutionText = document.querySelector("#resolutiontext");
 const colorPicker = document.querySelector("#colorpicker");
-const darkenButton = document.querySelector("button.darken");
-const lightenButton = document.querySelector("button.lighten");
-const rainbowButton = document.querySelector("button.rainbow");
+const darkenButton = document.querySelector(".radiobuttons#darken");
+const lightenButton = document.querySelector(".radiobuttons#lighten");
+const rainbowButton = document.querySelector(".radiobuttons#rainbow");
 const eraserButton = document.querySelector("button.eraser");
 const gridlinesButton = document.querySelector("button.gridlines");
 const resetButton = document.querySelector("button.reset");
 
 let mousePressed = false;
-let darkenMode = false;
-let lightenMode = false;
-let rainbowMode = false;
 let eraserMode = false;
 let pixels = [];
 
@@ -77,10 +74,15 @@ addEventListener("mousedown", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && eraserMode) {
             e.target.style.removeProperty("background-color");
-        } else if (pixel.matches(":hover") && rainbowMode) {
+        } else if (pixel.matches(":hover") && lightenButton.matches(":checked")) {
+            // e.target.style.backgroundColor = ;
+        } else if (pixel.matches(":hover") && darkenButton.matches(":checked")) {
+                // e.target.style.backgroundColor = ;
+        } else if (pixel.matches(":hover") && rainbowButton.matches(":checked")) {
             e.target.style.backgroundColor = colorRandomizer();
         } else if (pixel.matches(":hover")) {
             e.target.style.backgroundColor = colorPicker.value;
+            
             console.log(e.target.style.backgroundColor)
         }
     }
@@ -93,7 +95,11 @@ addEventListener("mouseover", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && mousePressed && eraserMode) {
             e.target.style.removeProperty("background-color");
-        } else if (pixel.matches(":hover") && mousePressed && rainbowMode) {
+        } else if (pixel.matches(":hover") && mousePressed && darkenButton.matches(":checked")) {
+            // e.target.style.backgroundColor = ;
+        } else if (pixel.matches(":hover") && mousePressed && lightenButton.matches(":checked")) {
+            // e.target.style.backgroundColor = ;
+        } else if (pixel.matches(":hover") && mousePressed && rainbowButton.matches(":checked")) {
             e.target.style.backgroundColor = colorRandomizer();
         } else if (pixel.matches(":hover") && mousePressed) {
             e.target.style.backgroundColor = colorPicker.value;
@@ -104,60 +110,60 @@ addEventListener("mouseover", (e) => {
 
 
 
-// Darken mode functionality
-darkenButton.addEventListener("click", () => {
-    darkenButton.classList.toggle("pressed")
-    if (darkenMode) {
-        darkenMode = false;
-    } else if (!darkenMode) {
-        darkenMode = true;
+// // Darken mode functionality
+// darkenButton.addEventListener("click", () => {
+//     darkenButton.classList.toggle("pressed")
+//     if (darkenMode) {
+//         darkenMode = false;
+//     } else if (!darkenMode) {
+//         darkenMode = true;
 
-        lightenButton.classList.toggle("pressed")
-        lightenMode = false;
-        rainbowButton.classList.toggle("pressed")
-        rainbowMode = false;
+//         lightenButton.classList.toggle("pressed")
+//         lightenMode = false;
+//         rainbowButton.classList.toggle("pressed")
+//         rainbowMode = false;
 
-    }
-    console.log(darkenMode)
-    console.log(lightenMode)
-    console.log(rainbowMode)
-})
+//     }
+//     console.log(darkenMode)
+//     console.log(lightenMode)
+//     console.log(rainbowMode)
+// })
 
-// Lighten mode functionality
-lightenButton.addEventListener("click", () => {
-    lightenButton.classList.toggle("pressed")
-    if (lightenMode) {
-        lightenMode = false;
-    } else if (!lightenMode) {
-        lightenMode = true;
+// // Lighten mode functionality
+// lightenButton.addEventListener("click", () => {
+//     lightenButton.classList.toggle("pressed")
+//     if (lightenMode) {
+//         lightenMode = false;
+//     } else if (!lightenMode) {
+//         lightenMode = true;
 
-        darkenButton.classList.toggle("pressed")
-        darkenMode = false;
-        rainbowButton.classList.toggle("pressed")
-        rainbowMode = false;
-    }
-    console.log(darkenMode)
-    console.log(lightenMode)
-    console.log(rainbowMode)
-})
+//         darkenButton.classList.toggle("pressed")
+//         darkenMode = false;
+//         rainbowButton.classList.toggle("pressed")
+//         rainbowMode = false;
+//     }
+//     console.log(darkenMode)
+//     console.log(lightenMode)
+//     console.log(rainbowMode)
+// })
 
-// Rainbow mode functionality
-rainbowButton.addEventListener("click", () => {
-    rainbowButton.classList.toggle("pressed")
-    if (rainbowMode) {
-        rainbowMode = false;
-    } else if (!rainbowMode) {
-        rainbowMode = true;
+// // Rainbow mode functionality
+// rainbowButton.addEventListener("click", () => {
+//     rainbowButton.classList.toggle("pressed")
+//     if (rainbowMode) {
+//         rainbowMode = false;
+//     } else if (!rainbowMode) {
+//         rainbowMode = true;
 
-        darkenButton.classList.toggle("pressed")
-        darkenMode = false;
-        lightenButton.classList.toggle("pressed")
-        lightenMode = false;
-    }
-    console.log(darkenMode)
-    console.log(lightenMode)
-    console.log(rainbowMode)
-})
+//         darkenButton.classList.toggle("pressed")
+//         darkenMode = false;
+//         lightenButton.classList.toggle("pressed")
+//         lightenMode = false;
+//     }
+//     console.log(darkenMode)
+//     console.log(lightenMode)
+//     console.log(rainbowMode)
+// })
 
 // Eraser mode functionality
 eraserButton.addEventListener("click", () => {
