@@ -36,6 +36,12 @@ function createGrid(resolution, size) {
     }
 }
 
+// Function to randomize colors
+function colorRandomizer() {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return randomColor
+}
+
 //Initial grid creation
 createGrid(slider.value, gridSize);
 
