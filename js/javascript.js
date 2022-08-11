@@ -10,6 +10,7 @@ const rainbowButton = document.querySelector(".radiobuttons#rainbow");
 const eraserButton = document.querySelector("button.eraser");
 const gridlinesButton = document.querySelector("button.gridlines");
 const resetButton = document.querySelector("button.reset");
+const saveButton = document.querySelector("button.save")
 
 let mousePressed = false;
 let eraserMode = false;
@@ -170,3 +171,9 @@ gridlinesButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
     createGrid(slider.value, gridSize);
 })
+
+
+// FEATURE BELOW TO BE ADDED
+// On button click save an image locally, should prompt for local path
+// saveButton.addEventListener("click", () => {
+// })
