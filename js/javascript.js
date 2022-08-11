@@ -7,7 +7,8 @@ const colorPicker = document.querySelector("#colorpicker");
 const gridlinesButton = document.querySelector("button.gridlines")
 const resetButton = document.querySelector("button.reset");
 
-let mousePressed = false
+let mousePressed = false;
+let eraserMode = false;
 let pixels = [];
 
 
@@ -76,6 +77,7 @@ addEventListener("mouseover", (e) => {
 
 // Toggle Gridlines ON and Off
 gridlinesButton.addEventListener("click", () => {
+    gridlinesButton.classList.toggle("pressed")
     for (let pixel of pixels) {
         pixel.classList.toggle("removemargin");
     }

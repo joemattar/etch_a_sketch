@@ -100,10 +100,12 @@ body {
     padding: 0;
 }
 
+/* Edit color picker appearance */
 #colorpicker::-webkit-color-swatch-wrapper {
 	padding: 0;
 }
 
+/* Edit color picker appearance */
 #colorpicker::-webkit-color-swatch {
 	border: none;
 }
@@ -126,13 +128,23 @@ body {
     color: #ec1f24;
 }
 
+.buttons button.pressed{
+    background-color: #fde50f;
+    color: #ec1f24;
+}
+
+.buttons button.pressed:hover{
+    background-color: #ec1f24;
+    color: #fde50f;
+}
+
 .etch-a-sketch {
     background-color: #ec1f24;
     border-style: solid;
     border-color: #ce0001;
     border-width: 15px;
     border-radius: 15px;
-    padding: 0 25px;
+    padding: 0 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,9 +205,9 @@ h1 {
 }
 
 .knobs img {
-    width: 100px;
+    width: 150px;
     height: auto;
-    margin: 25px;
+    margin: 0px;
 }
 
 .footer {
