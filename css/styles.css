@@ -170,12 +170,13 @@ h1 {
 }
 
 .grid {
-    padding: 0.5px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-
-    background-color: black;
 }
 
 .pixelRow {
@@ -184,8 +185,9 @@ h1 {
 }
 
 .pixel {
-    background-color: white;
-    margin: 0.5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
 }
 
 .pixel:hover {
@@ -194,7 +196,7 @@ h1 {
 
 /* MUST BE BELOW .pixel */
 .pixel.removemargin {
-    margin: 0;
+    border-width: 0px;
 }
 
 .knobs {

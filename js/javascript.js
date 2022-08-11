@@ -77,6 +77,7 @@ addEventListener("mousedown", (e) => {
             e.target.style.backgroundColor = colorRandomizer();
         } else if (pixel.matches(":hover")) {
             e.target.style.backgroundColor = colorPicker.value;
+            console.log(e.target)
         }
     }
 })
