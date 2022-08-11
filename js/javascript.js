@@ -39,7 +39,7 @@ function createGrid(resolution, size) {
 // Function to randomize colors
 function colorRandomizer() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    return randomColor
+    return `#${randomColor}`
 }
 
 //Initial grid creation
@@ -66,22 +66,30 @@ addEventListener("mouseup", () => mousePressed = false);
 
 
 
+// Erases if mouse is clicked and eraser mode is true
+// Draw random colors if mouse is clicked and rainbow mode is true
 // Draws color picker value if mouse is clicked
 addEventListener("mousedown", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && eraserMode) {
             e.target.style.removeProperty("background-color");
-        }else if (pixel.matches(":hover")) {
+        } else if (pixel.matches(":hover") && rainbowMode) {
+            e.target.style.backgroundColor = colorRandomizer();
+        } else if (pixel.matches(":hover")) {
             e.target.style.backgroundColor = colorPicker.value;
         }
     }
 })
 
+// Erases if mouse is pressed and mouseover and eraser mode is true
+// Draw random colors if mouse is pressed and mouseover and rainbow mode is true
 // Draws color picker value if mouse is pressed and mouseover
 addEventListener("mouseover", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && mousePressed && eraserMode) {
             e.target.style.removeProperty("background-color");
+        } else if (pixel.matches(":hover") && mousePressed && rainbowMode) {
+            e.target.style.backgroundColor = colorRandomizer();
         } else if (pixel.matches(":hover") && mousePressed) {
             e.target.style.backgroundColor = colorPicker.value;
         }
