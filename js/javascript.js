@@ -37,6 +37,36 @@ function createGrid(resolution, size) {
     }
 }
 
+// Function to convert hex color to rgb color
+function hexToRgb(hex) {
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`;
+}
+
+// Function to decrease opacity by 10% under certain conditions
+function darkenColor(rgbColor) {
+    if (!rgbColor) {
+        rgbColor = hexToRgb(colorPicker.value);
+        let rgbString = rgbColor.substring(4, rgbColor.length - 1);
+        let rgbArray = rgbString.split(", ").map(Number);
+        rgbColor = `rgba(${rgbArray.toString()}, 0.1)`;
+    } else if (rgbColor) {
+        if (rgbColor.charAt(3) !== "a") {
+        } else { 
+        let rgbString = rgbColor.substring(5, rgbColor.length - 1);
+        let rgbArray = rgbString.split(", ").map(Number);
+        rgbArray[3] += 0.1;
+        rgbColor = `rgba(${rgbArray.toString()})`;
+        }
+    }
+    console.log(rgbColor)   
+    return rgbColor
+}
+
+
+
+
+
 // Function to randomize colors
 function colorRandomizer() {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -74,16 +104,14 @@ addEventListener("mousedown", (e) => {
     for (let pixel of pixels) {
         if (pixel.matches(":hover") && eraserMode) {
             e.target.style.removeProperty("background-color");
-        } else if (pixel.matches(":hover") && lightenButton.matches(":checked")) {
-            // e.target.style.backgroundColor = ;
         } else if (pixel.matches(":hover") && darkenButton.matches(":checked")) {
+            e.target.style.backgroundColor = darkenColor(e.target.style.backgroundColor);
+        } else if (pixel.matches(":hover") && lightenButton.matches(":checked")) {
                 // e.target.style.backgroundColor = ;
         } else if (pixel.matches(":hover") && rainbowButton.matches(":checked")) {
             e.target.style.backgroundColor = colorRandomizer();
-        } else if (pixel.matches(":hover")) {
+        } else if (pixel.matches(":hover")) {            
             e.target.style.backgroundColor = colorPicker.value;
-            
-            console.log(e.target.style.backgroundColor)
         }
     }
 })
@@ -96,7 +124,7 @@ addEventListener("mouseover", (e) => {
         if (pixel.matches(":hover") && mousePressed && eraserMode) {
             e.target.style.removeProperty("background-color");
         } else if (pixel.matches(":hover") && mousePressed && darkenButton.matches(":checked")) {
-            // e.target.style.backgroundColor = ;
+            e.target.style.backgroundColor = darkenColor(e.target.style.backgroundColor);
         } else if (pixel.matches(":hover") && mousePressed && lightenButton.matches(":checked")) {
             // e.target.style.backgroundColor = ;
         } else if (pixel.matches(":hover") && mousePressed && rainbowButton.matches(":checked")) {
@@ -183,7 +211,7 @@ gridlinesButton.addEventListener("click", () => {
     }
 })
 
-// Onb button click resets the grid keeping the current resolution
+// On button click resets the grid keeping the current resolution
 resetButton.addEventListener("click", () => {
     createGrid(slider.value, gridSize);
-});
+})
