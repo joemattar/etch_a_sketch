@@ -4,12 +4,14 @@ const gridDiv = document.querySelector("div.grid");
 const slider = document.querySelector("#resolution");
 const resolutionText = document.querySelector("#resolutiontext");
 const colorPicker = document.querySelector("#colorpicker");
-const eraserButton = document.querySelector("button.eraser")
-const gridlinesButton = document.querySelector("button.gridlines")
+const rainbowButton = document.querySelector("button.rainbow");
+const eraserButton = document.querySelector("button.eraser");
+const gridlinesButton = document.querySelector("button.gridlines");
 const resetButton = document.querySelector("button.reset");
 
 let mousePressed = false;
 let eraserMode = false;
+let rainbowMode = false;
 let pixels = [];
 
 
@@ -83,7 +85,17 @@ addEventListener("mouseover", (e) => {
 
 
 
-// Eraser functionality
+// Rainbow mode functionality
+rainbowButton.addEventListener("click", () => {
+    rainbowButton.classList.toggle("pressed")
+    if (rainbowMode) {
+        rainbowMode = false;
+    } else if (!rainbowMode) {
+        rainbowMode = true;
+    }
+})
+
+// Eraser mode functionality
 eraserButton.addEventListener("click", () => {
     eraserButton.classList.toggle("pressed")
     if (eraserMode) {
