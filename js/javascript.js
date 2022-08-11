@@ -4,14 +4,18 @@ const gridDiv = document.querySelector("div.grid");
 const slider = document.querySelector("#resolution");
 const resolutionText = document.querySelector("#resolutiontext");
 const colorPicker = document.querySelector("#colorpicker");
+const darkenButton = document.querySelector("button.darken");
+const lightenButton = document.querySelector("button.lighten");
 const rainbowButton = document.querySelector("button.rainbow");
 const eraserButton = document.querySelector("button.eraser");
 const gridlinesButton = document.querySelector("button.gridlines");
 const resetButton = document.querySelector("button.reset");
 
 let mousePressed = false;
-let eraserMode = false;
+let darkenMode = false;
+let lightenMode = false;
 let rainbowMode = false;
+let eraserMode = false;
 let pixels = [];
 
 
@@ -77,7 +81,7 @@ addEventListener("mousedown", (e) => {
             e.target.style.backgroundColor = colorRandomizer();
         } else if (pixel.matches(":hover")) {
             e.target.style.backgroundColor = colorPicker.value;
-            console.log(e.target)
+            console.log(e.target.style.backgroundColor)
         }
     }
 })
@@ -100,6 +104,43 @@ addEventListener("mouseover", (e) => {
 
 
 
+// Darken mode functionality
+darkenButton.addEventListener("click", () => {
+    darkenButton.classList.toggle("pressed")
+    if (darkenMode) {
+        darkenMode = false;
+    } else if (!darkenMode) {
+        darkenMode = true;
+
+        lightenButton.classList.toggle("pressed")
+        lightenMode = false;
+        rainbowButton.classList.toggle("pressed")
+        rainbowMode = false;
+
+    }
+    console.log(darkenMode)
+    console.log(lightenMode)
+    console.log(rainbowMode)
+})
+
+// Lighten mode functionality
+lightenButton.addEventListener("click", () => {
+    lightenButton.classList.toggle("pressed")
+    if (lightenMode) {
+        lightenMode = false;
+    } else if (!lightenMode) {
+        lightenMode = true;
+
+        darkenButton.classList.toggle("pressed")
+        darkenMode = false;
+        rainbowButton.classList.toggle("pressed")
+        rainbowMode = false;
+    }
+    console.log(darkenMode)
+    console.log(lightenMode)
+    console.log(rainbowMode)
+})
+
 // Rainbow mode functionality
 rainbowButton.addEventListener("click", () => {
     rainbowButton.classList.toggle("pressed")
@@ -107,7 +148,15 @@ rainbowButton.addEventListener("click", () => {
         rainbowMode = false;
     } else if (!rainbowMode) {
         rainbowMode = true;
+
+        darkenButton.classList.toggle("pressed")
+        darkenMode = false;
+        lightenButton.classList.toggle("pressed")
+        lightenMode = false;
     }
+    console.log(darkenMode)
+    console.log(lightenMode)
+    console.log(rainbowMode)
 })
 
 // Eraser mode functionality
