@@ -12,6 +12,8 @@ const gridlinesButton = document.querySelector("button.gridlines");
 const resetButton = document.querySelector("button.reset");
 const saveButton = document.querySelector("button.save")
 
+const radioButtons = document.querySelectorAll(".radiobuttons")
+
 let mousePressed = false;
 let eraserMode = false;
 let pixels = [];
@@ -149,17 +151,33 @@ addEventListener("mouseover", (e) => {
     }
 })
 
-// Eraser mode functionality
-eraserButton.addEventListener("click", () => {
+// Toggle Eraser mode ON/OFF function
+function toggleEraser() {
     eraserButton.classList.toggle("pressed")
     if (eraserMode) {
         eraserMode = false;
     } else if (!eraserMode) {
         eraserMode = true;
     }
-})
+}
 
-// Toggle Gridlines ON and Off
+// Eraser mode event listener
+eraserButton.addEventListener("click", toggleEraser)
+
+// Eraser mode OFF function
+function offEraser() {
+    eraserButton.classList.remove("pressed")
+    if (eraserMode) {
+        eraserMode = false;
+    }
+}
+
+// Event listener to turn eraser mode off when color modes clicked
+for (let radioButton of radioButtons) {
+    radioButton.addEventListener("click", offEraser)
+}
+
+// Toggle Gridlines ON/Off function
 gridlinesButton.addEventListener("click", () => {
     gridlinesButton.classList.toggle("pressed")
     for (let pixel of pixels) {
